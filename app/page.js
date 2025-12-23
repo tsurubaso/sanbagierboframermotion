@@ -1,65 +1,235 @@
+"use client";
+import MotionEffects from "@/components/MotionEffects";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function Home() {
+
+const {
+  //PulseText,
+  //FadeIn,
+  GradientText,
+  //TypingText,
+  //HoverZoom,
+  HeroSection,
+  ScrollColorSection,
+  ScrollShiftSection,
+  AnimatedText,
+  SlideIn,
+} = MotionEffects;
+
+export default function Welcome() {
+  const router = useRouter();
+  const ASSETS = process.env.NEXT_PUBLIC_ASSETS_URL || "";
+  const routes = [
+    { label: "Full app", path: "/BILLY/Rules" },
+    { label: "Full app secret mode", path: "/TARVA/Rules" },
+    { label: "Reader", path: "/BESTA/Rules" },
+    { label: "Reader+writer", path: "/KALLAX/Rules" },
+  ];
+
+  const handleClick = (path) => {
+    router.push(path);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main
+      className="flex min-h-screen items-center justify-center py-2 px-4"
+      style={{
+        backgroundColor: "var(--background)",
+        color: "var(--foreground)",
+      }}
+    >
+      <div className="w-full max-w-4xl p-8 rounded-lg shadow-md border space-y-5">
+        {/* Objectif */}
+
+        <HeroSection
+          direction="right"
+          duration="3"
+          text="Full Moon"
+          image={`${ASSETS}/photos/moon/image.jpg`}
+          hover
+        >
+          <GradientText
+            text="🚀 Notre objectif 🚀"
+            className="text-3xl font-bold text-center"
+          />
+        </HeroSection>
+
+        <SlideIn duration="3" from="left" className="bg-gray-600">
+          <h2 className="text-4xl font-bold">
+            Un nouveau médium pour aider la créativité de nos auteurs. Chacun
+            d&apos;eux pourra partager et promouvoir son travail facilement,
+            collaborer et échanger sans complications.
+          </h2>
+        </SlideIn>
+
+        {/* Lecteur */}
+        <HeroSection
+          direction="right"
+          duration="3"
+          text="screenshot lecteur"
+          image={`${ASSETS}/photos/moon/screenShotLecteur.jpg`}
+          hover
+        >
+          <GradientText
+            text="📖 Lecteur 📖"
+            className="text-4xl font-bold text-center"
+          />
+        </HeroSection>
+
+        <SlideIn duration="3" from="left" className="bg-gray-600">
+          <h2 className="text-4xl font-bold">
+            Simplicité et accès direct au contenu avant tout. Profitez de la
+            lecture sans effort.
+          </h2>
+        </SlideIn>
+
+        {/* Éditeur */}
+        <HeroSection
+          direction="right"
+          duration="3"
+          text="screenshot éditeur"
+          image={`${ASSETS}/photos/moon/screenShotEditor.jpg`}
+          hover
+        >
+          <GradientText
+            text="✍️ Éditeur ✍️"
+            className="text-4xl font-bold text-center"
+          />
+        </HeroSection>
+        <SlideIn duration="3" from="left" className="bg-gray-600">
+          <h2 className="text-4xl font-bold">
+            Travaillez main dans la main avec vos collaborateurs, partagez et
+            corrigez sans jamais toucher à l’original.
+          </h2>
+        </SlideIn>
+
+        {/* Fusionneur */}
+        <HeroSection
+          direction="right"
+          duration="3"
+          text="Screenshot mergeur"
+          image={`${ASSETS}/photos/moon/screenShotMerger.jpg`}
+          hover
+        >
+          <GradientText
+            text="🔀 Mergeur 🔀"
+            className="text-4xl font-bold text-center"
+          />
+        </HeroSection>
+        <SlideIn duration="3" from="left" className="bg-gray-600">
+          <h2 className="text-4xl font-bold">
+            Cette partie de l&apos;app permet de relire, comparer et fusionner
+            les corrections pour créer une version finale harmonisée.
+          </h2>
+        </SlideIn>
+
+        {/* Évolutions futures */}
+        <HeroSection
+          direction="right"
+          duration="3"
+          text="Melies Moon"
+          image={`${ASSETS}/photos/moon/image4.jpg`}
+          hover
+        >
+          <GradientText
+            text="🌈 Évolutions futures 🌈"
+            className="text-4xl font-bold text-center"
+          />
+        </HeroSection>
+
+        <SlideIn duration="3" from="left" className="bg-gray-600">
+          <h2 className="text-4xl font-bold">
+            Bientôt : Ajouter images, photos, dessins et modèles 3D, partager
+            sur réseaux sociaux, nouvelles options de collaboration créative.
+          </h2>
+        </SlideIn>
+        <HeroSection
+          image={`${ASSETS}/photos/moon/image2.jpg`}
+          duration="3"
+          text="black and white moon"
+          direction="right"
+          hover
+        >
+          <GradientText
+            text="👁️Notre Vision👁️"
+            className="text-4xl font-bold text-center"
+          />
+        </HeroSection>
+
+        <ScrollColorSection
+          text="Vous avez toujours lu de merveilleuses histoires…
+De grands auteurs, de grandes aventures.
+Mais à quoi sert une histoire sans illustration ?
+
+Pensez à Jules Verne sans Édouard Riou, Alphonse de Neuville, Léon Benett et Jules Férat.
+Ou encore Émile-Antoine Bayard !
+
+Oui, vous voyez, dans votre esprit — et pour des générations — ces histoires ont toujours été illustrées.
+L’art de l’éditeur a toujours été de combiner le texte et l’image.
+Pour Jules, c’était Pierre-Jules Hetzel."
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <HeroSection image={`${ASSETS}/photos/moon/image3.jpg`}
+          text="detail de la Lune" hover>
+          <GradientText
+            text="🛠️Le projet?🛠️"
+            className="text-4xl font-bold text-center"
+          />
+        </HeroSection>
+
+        <ScrollShiftSection
+          text="
+        L’objectif est de promouvoir, et à terme, de rémunérer les créateurs :
+Illustrateurs, Graphistes, Peintres, Photographes, Artistes 3D... c’est open bar !
+Mais tout reste à faire, et à tous les niveaux...Mais Parbleu que c'est amusant de faire ce qu'on aime.
+Pour ce que l'on aime, pour ceux que l'on aime."
+        />
+
+        <AnimatedText
+          text="📚 Comment contribuer?"
+          duration={10}
+          className="text-4xl font-semibold"
+        />
+
+        <SlideIn from="left" className="bg-blue-200">
+          <p className="p-10 bg-gray  rounded-xl text-2xl font-bold">
+            Je vous invite à lire les histoires, à repérer où des illustrations
+            pourraient s’intégrer — nous nous chargerons du reste.
           </p>
+        </SlideIn>
+
+        <HeroSection
+          image={`${ASSETS}/photos/moon/image5.jpg`}
+          text="En avant!"
+          direction="right"
+          hover
+        />
+
+        <div className="relative flex justify-center mt-6">
+          {/* --- IMAGE DE FOND --- */}
+          <Image
+            src={`${ASSETS}/photos/moon/image6.jpg`}
+            alt="Fond"
+            width={1000}
+            height={600}
+            className="rounded-lg object-cover"
+            style={{ width: "100%", height: "auto", maxHeight: "600px" }}
+          />
+
+          {/* --- BOUTONS PAR-DESSUS --- */}
+          <div className="absolute inset-0 flex flex-col justify-center items-center space-y-3">
+            {routes.map((route) => (
+              <button
+                key={route.path}
+                onClick={() => handleClick(route.path)}
+                className="px-5 py-6 bg-pink-600/80 text-white font-semibold rounded-lg hover:bg-blue-600/80 transition"
+              >
+                {route.label}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
