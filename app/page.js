@@ -21,10 +21,7 @@ export default function Welcome() {
   const router = useRouter();
   const ASSETS = process.env.NEXT_PUBLIC_ASSETS_URL || "";
   const routes = [
-    { label: "Full app", path: "/BILLY/Rules" },
-    { label: "Full app secret mode", path: "/TARVA/Rules" },
-    { label: "Reader", path: "/BESTA/Rules" },
-    { label: "Reader+writer", path: "/KALLAX/Rules" },
+    { label: "Motion training", path: "Motion/Training1" },
   ];
 
   const handleClick = (path) => {
