@@ -1,21 +1,49 @@
 "use client";
+const box = {
+    width: 100,
+    height: 100,
+    backgroundColor: "#0cdcf7",
+    borderRadius: 5,
+}
 
 export default function Training1() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-400 to-indigo-400 flex items-center justify-center">
-      <div className="bg-white rounded-2xl shadow-2xl p-10 max-w-md text-center">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-          Training1 Page
-        </h1>
+    <main className="min-h-screen bg-gradient-to-br from-purple-700 to-pink-400 flex items-center justify-center">
 
-        <p className="text-gray-600 mb-6">
-          Tailwind layout test
-        </p>
 
-        <button className="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition">
-          Tailwind OK
-        </button>
-      </div>
+
+
+        <motion.div
+            style={box}
+            /**
+             * Setting the initial keyframe to "null" will use
+             * the current value to allow for interruptable keyframes.
+             */
+            whileHover={{
+                scale: [null, 1.1, 1.6],
+                transition: {
+                    duration: 0.5,
+                    times: [0, 0.6, 1],
+                    ease: ["easeInOut", "easeOut"],
+                },
+            }}
+            transition={{
+                duration: 0.3,
+                ease: "easeOut",
+            }}
+        />
+    
+
+
+/**
+ * ==============   Styles   ================
+ */
+
+
+
+
+
+
     </main>
   );
 }

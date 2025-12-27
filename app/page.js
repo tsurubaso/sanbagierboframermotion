@@ -24,6 +24,7 @@ export default function Welcome() {
     { label: "Motion training", path: "Motion/Training1" },
   ];
 
+  
   const handleClick = (path) => {
     router.push(path);
   };
